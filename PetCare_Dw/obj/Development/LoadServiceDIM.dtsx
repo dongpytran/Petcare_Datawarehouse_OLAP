@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2021 12:15:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-V3KE0001"
+  DTS:CreatorName="LAPTOP-V3KE0001\PY"
+  DTS:DTSID="{0946BD84-3B1E-40C5-AD0A-8420E59AA348}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadServiceDIM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{AD89228D-9365-4B66-8994-C6D30B33E155}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1D8756A6-8DB8-4D9B-9AB1-EA107EF76571}"
+      DTS:ObjectName="LAPTOP-V3KE0001\MSSQL2019.PET_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-V3KE0001\MSSQL2019;Initial Catalog=PET_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_MANAGEMENT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{278874DF-A851-489C-907B-4B257D8DC78E}"
+      DTS:ObjectName="LAPTOP-V3KE0001\MSSQL2019.PET_MANAGEMENT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-V3KE0001\MSSQL2019;Initial Catalog=PET_MANAGEMENT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5413A764-5B4A-4222-9F06-A26D20A423E2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DIM_Service"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DIM_Service"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_Service]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIM_Service.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].Columns[service_id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="service_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_id]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].Columns[service_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="service_name"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_name]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].Columns[service_details]"
+                      cachedDataType="nText"
+                      cachedName="service_details"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_details]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_details]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].Columns[unit_id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="unit_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[unit_id]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[unit_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].Columns[cost]"
+                      cachedDataType="i4"
+                      cachedName="cost"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[cost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_id]"
+                      dataType="wstr"
+                      length="10"
+                      name="service_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="service_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[service_details]"
+                      dataType="nText"
+                      name="service_details" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[unit_id]"
+                      dataType="wstr"
+                      length="10"
+                      name="unit_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      dataType="i4"
+                      name="cost" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIM_Service.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Service.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Service.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Service.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Service"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Service"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Service]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Service.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_MANAGEMENT]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-V3KE0001\MSSQL2019.PET_MANAGEMENT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_id]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_id]"
+                      name="service_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_name]"
+                      name="service_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_details]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_details]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[service_details]"
+                      name="service_details"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[unit_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[unit_id]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[unit_id]"
+                      name="unit_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[cost]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[cost]"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].Columns[cost]"
+                      name="cost"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_id]"
+                      dataType="wstr"
+                      length="10"
+                      name="service_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="service_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[service_details]"
+                      dataType="nText"
+                      name="service_details" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[unit_id]"
+                      dataType="wstr"
+                      length="10"
+                      name="unit_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output].ExternalColumns[cost]"
+                      dataType="i4"
+                      name="cost" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_id]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_id]"
+                      name="service_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_name]"
+                      name="service_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_details]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[service_details]"
+                      name="service_details" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[unit_id]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[unit_id]"
+                      name="unit_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[cost]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[cost]"
+                      name="cost" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Service.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\DIM_Service.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Service.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FFF8F8A8-115E-4D9B-BBF8-749B60F08DBD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1D8756A6-8DB8-4D9B-9AB1-EA107EF76571}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_Service" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{866F0CB8-359B-405B-913E-E9DC6AB10F0D}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="395,259" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="423,115" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="504.5,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34,102"
+              Start="0,0"
+              End="-34,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="-4,51" />
+                  <mssgle:LineSegment
+                    End="-30,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30,51"
+                    Point2="-34,51"
+                    Point3="-34,55" />
+                  <mssgle:LineSegment
+                    End="-34,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Data Flow Task\DIM_Service"
+          TopLeft="684,52" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Data Flow Task\Service"
+          TopLeft="288,56" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="401,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="283,0"
+              Start="0,0"
+              End="275.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="275.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIM_Service">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Service">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
