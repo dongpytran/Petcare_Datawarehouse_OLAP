@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>PETCARE_OLAP</Database>
+    <Server>LAPTOP-V3KE0001\MSSQL2019</Server>
+    <ConnectionString>Data Source=LAPTOP-V3KE0001\MSSQL2019;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>biiA8Ey+XH0Z5kbhWZYQ6OwL4b4=3/19/2021 12:07:30 PM3/19/2021 12:07:30 PM</TimeStamp>
+        <ID>
+          <String>PET DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>aAGkLnnGqLhtPPs0veXZPR9n6mc=3/19/2021 12:15:48 PM3/19/2021 12:10:22 PM</TimeStamp>
+        <ID>
+          <String>PET DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pezMseYIRPGxC62eWTcJledcCKw=3/19/2021 12:23:49 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>DIM Service</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Dn2UeHBi+xSQKoStqsJ4O7GxdCg=3/19/2021 12:24:00 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>DIM UNIT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HDx1fyK5yDpu3SAMgsvyWTyETTE=3/19/2021 12:24:12 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>DIM Species</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AcK4o5jEkbPxRbFyffHGSYlZIOE=3/19/2021 12:24:29 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>DIM Date Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zTv442rBWYYpc6COrKz6Wx4Udtw=3/19/2021 12:24:43 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>DIM Facility</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>k8d7TeZ9UWF9MZbOnKfpLvvgiUE=3/19/2021 12:25:10 PM3/19/2021 12:14:46 PM</TimeStamp>
+        <ID>
+          <String>DIM Owner</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>91Fv1dx7h695JdIw0eE/w+jHiXY=3/19/2021 12:25:10 PM3/19/2021 12:14:45 PMz9bbuh4RLKAWRuatoBmRyDvqfBA=3/19/2021 12:14:46 PM3/19/2021 12:14:45 PM</TimeStamp>
+        <ID>
+          <String>PET DWCube</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>JD70ZQFy79mjkYflwQqjabQcP0s=4/4/2021 7:39:50 PM4/4/2021 7:39:50 PM</TimeStamp>
+        <ID>
+          <String>FACT AMOUNT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>9O+7ifLWu7aeby9VYU76w3c9Z+g=4/11/2021 7:26:47 PM4/11/2021 7:26:03 PM</TimeStamp>
+        <ID>
+          <String>FACT AMOUNT 1</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>DUquv1KBdYak/tEVqrSSluqwpKI=3/19/2021 12:05:51 PM3/19/2021 12:05:51 PM</TimeStamp>
+      <ID>
+        <String>PETCARE_OLAP</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-04-11T12:26:51.123333Z</LastDeployed>
+</DeploymentSnapshot>
