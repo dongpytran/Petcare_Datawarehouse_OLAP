@@ -6,6 +6,10 @@
 + Thực hiện các câu truy vấn MDX
 + Dự đoán doanh thu bằng Data Mining
 
+- Mô hình kiến trúc kho dữ liệu:
+
+<img src="/scsh/8.PNG" />
+
 - Sơ đồ mô hình ứng dụng:
 
 <img src="/scsh/7.PNG"/>
