@@ -8,8 +8,8 @@
 
 Sơ đồ mô hình ứng dụng:
 
-<img src="./scsh/7.png"/>
+<img src="/scsh/7.png"/>
 
 - Màn hình đăng nhập:
 
-<img src="./scsh/1.png"/>
+<img src="/scsh/1.png"/>
