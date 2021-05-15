@@ -32,7 +32,7 @@
 
 - Chức năng truy vấn MDX:
 
-<img src="/scsh/6.PNG"/>
+<img src="/scsh/6.png"/>
 
 
 - Báo cáo được cài đặt bằng Power BI, cổng kết nối Power BI Gateway
